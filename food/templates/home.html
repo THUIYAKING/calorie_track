@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <nav>
+    <h2 class="logo">Calories Track</h2>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'add_food' %}">Add Food</a></li>
+      <li><a href="{% url 'food_list' %}">Food List</a></li>
+    </ul>
+  </nav>
+  <div class="food-list"style="margin-top: 250px !important;">
+    
+      <li><a href="{% url 'add_food' %}">Add Food</a></li>
+      <li><a href="{% url 'food_list' %}">Food List</a></li>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <footer>
+    <p>&copy;  Calories track</p>
+  </footer>
+{% endblock %}
+

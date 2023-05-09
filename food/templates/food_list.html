@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Food List{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<nav>
+  <h2 class="logo">Calories Track</h2>
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'add_food' %}">Add Food</a></li>
+    <li><a href="{% url 'food_list' %}">Food List</a></li>
+  </ul>
+</nav>
+  <div class="food-list"style="margin-top: 50px !important;">
+    <h1>Food List</h1>
+    <ul>
+      {% for food in foods %}
+        <li>{{ food.name }} - {{ food.calories }} calories <a href="{% url 'remove_food' food.id %}">remove</a></li>
+      {% empty %}
+        <li>No food items yet.</li>
+      {% endfor %}
+    </ul>
+    <h2>Total Calories: {{ total_calories }}</h2>
+
+    <form action="{% url 'reset_calories' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Reset Calories">
+    </form>
+  </div>
+{% endblock %}
+
