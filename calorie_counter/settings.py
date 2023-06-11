@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(0g*rz%183k9g5m!(u3h*pkg(+^n8j(o8fsyb_#$dsx+fo+k&w
 DEBUG = True
 
 ALLOWED_HOSTS = [
-calorie-tack1.onrender.com
+ calorie-tack1.onrender.com
 ]
 
 
